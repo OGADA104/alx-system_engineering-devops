@@ -1,2 +1,2 @@
 #!/bin/bash
-li -a --numeric
+ls -a --numeric
