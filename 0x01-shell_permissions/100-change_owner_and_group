@@ -1,3 +1,2 @@
 #!/bin/bash
-chown -R vincent:staff ./*h
-
+chown -R vincent:staff ./*
