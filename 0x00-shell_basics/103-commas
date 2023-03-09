@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1a --group-directories-first | paste -sd "," -
+ls -1a --group-directories-first | paste -sd "/," -
