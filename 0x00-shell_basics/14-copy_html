@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -name "*.html" -type f -newer ../ -exec cp -p '{}' ../ \;
+for f in *.html; do [ "$f" -nt "../$f" ] && cp -p "$f" "../" && echo "Copied $f to ../"; done
