@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# print "Best schoo" ten times using
+# +while loop
+count=0
+while [ $count -lt 20 ];
+do
+	((count++))
+	case $count in 
+		4)
+			echo "bad luck from China"
+			;;
+		9)
+			echo "bad luck from Japan"
+			;;
+		17)
+			echo "bad luck from Italy"
+			;;
+		*)
+			echo "$count"
+		esac
+done
