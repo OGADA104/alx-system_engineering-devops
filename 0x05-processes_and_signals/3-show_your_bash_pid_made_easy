@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#task 3
 script_pid=$$
 while read -r pid name; do
     if [ "$pid" != "$script_pid" ]; then
