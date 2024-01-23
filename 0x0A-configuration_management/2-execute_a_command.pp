@@ -1,9 +1,10 @@
 # 2-execute_a_command.pp
 
 exec { 'killmenow':
-  command    => '/usr/bin/pkill -f "killmenow"',
-  path       => '/bin:/usr/bin',
-  onlyif     => '/usr/bin/pgrep -f "killmenow"',
-  tries      => 10,        # Number of tries
-  try_sleep  => 2,         # Sleep duration between tries in seconds
+  command     => '/usr/bin/pkill -f killmenow',
+  path        => ['/bin', '/usr/bin'],
+  refreshonly => true,
 }
+
+# Assuming the process 'killmenow' is started before applying this manifest.
+# The 'refreshonly' parameter ensures that the command will only run if notified by another resource.
