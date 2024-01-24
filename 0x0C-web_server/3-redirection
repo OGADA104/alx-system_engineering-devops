@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Update package list and install nginx with the -y flag
+sudo apt-get update -y
+sudo apt-get install nginx -y
+
+# Configure nginx to listen on port 80
+sudo sed -i 's/^\(listen .*\)80/\180/' /etc/nginx/sites-available/default
+
+echo "Redirecting..." | sudo tee /usr/share/nginx/html/redirect.html > /dev/null
+
+# Configure a 301 redirect for /redirect_me in Nginx
+sudo sed -i '/location \/ {/a \    location /redirect_me { return 301 /redirect.html; }' \
+	/etc/nginx/sites-available/default
+
+# Reload nginx to apply the changes
+sudo service nginx reload
+
+# Display success message
+echo "Nginx installed and configured. Hello World! page created."
